@@ -1,3 +1,7 @@
+.vs/
+*.filters
+*.user
+
 # Prerequisites
 *.d
 
