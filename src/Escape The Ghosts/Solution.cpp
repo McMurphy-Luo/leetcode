@@ -14,22 +14,14 @@ public:
 
   bool escapeGhosts(vector<vector<int>>& ghosts, vector<int>& target) {
     assert(target.size() == 2);
-
     size_t me_target_distance = PointDistance(0, 0, target[0], target[1]);
-    
-
     for (const vector<int>& item : ghosts) {
       assert(item.size() == 2);
-
       size_t ghost_target_distance = PointDistance(target[0], target[1], item[0], item[1]);
-
-      if (ghost_target_distance >= me_target_distance) {
+      if (ghost_target_distance <= me_target_distance) {
         return false;
       }
     }
-
     return true;
-
-
   }
 };
