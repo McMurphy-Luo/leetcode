@@ -1,6 +1,8 @@
 #include <functional>
 
-template<typename T>
-void QuickSort(T begin, T end, std::function<>) {
+template<typename I, typename V>
+void QuickSort(I begin, I end, std::function<int(const V&, const V&)>) {
+
+  
 
 }
