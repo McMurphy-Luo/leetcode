@@ -3,7 +3,7 @@
 
 
 template<typename I, typename V>
-bool ArrayEquals(I begin_1, I end_1, I begin_2, I end_2, std::function<int(const v&, const V&)> comparator) {
+bool ArrayEquals(I begin_1, I end_1, I begin_2, I end_2, std::function<int(const V&, const V&)> comparator) {
   assert(begin_1 < end_1);
   assert(begin_2 < end_2);
   assert(end_1 - begin_1 == end_2 - begin_2);
@@ -34,7 +34,7 @@ void QuickSort(I begin, I end, std::function<int(const V&, const V&)> comparator
 
   while (anchor_left != anchor_right) {
     while (anchor_left != anchor_right) {
-      if (*anchor_right < pivot) {
+      if (comparator(*anchor_right, pivot)) {
         std::swap(*anchor_right, *pivot_position);
         pivot_position = anchor_right;
         break;
@@ -42,7 +42,7 @@ void QuickSort(I begin, I end, std::function<int(const V&, const V&)> comparator
       --anchor_right;
     }
     while (anchor_left != anchor_right){
-      if (*anchor_left > pivot) {
+      if (comparator(pivot, *anchor_left)) {
         std::swap(*anchor_left, *pivot_position);
         pivot_position = anchor_left;
         break;
