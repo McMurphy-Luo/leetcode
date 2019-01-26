@@ -8,9 +8,12 @@ using namespace std;
 struct Accumulation {
   int total;
   int contains_last;
+  Accumulation()
+  : total(0)
+  , contains_last(false) {
+
+  }
 };
-
-
 
 class Solution {
 public:
@@ -34,23 +37,13 @@ public:
       result.push_back(the_first_one);
       return result;
     }
-
     vector<int> number_slice(numbers.begin(), numbers.end() - 1);
     int last_value = numbers.back();
-
-    
-
     vector<Accumulation> previous_step = AccumulateTotalNumber(number_slice);
-
-	std::cout << previous_step.back().total << std::endl;
-
-
     Accumulation last;
     assert(previous_step.size() >= 1);
     if (previous_step.back().contains_last) {
       Accumulation the_item_before_last;
-      the_item_before_last.contains_last = false;
-      the_item_before_last.total = 0;
       if (previous_step.size() >= 2) {
         the_item_before_last = previous_step[previous_step.size() - 2];
       }
@@ -62,7 +55,6 @@ public:
         last.total = previous_step.back().total;
       }
     } else {
-      Accumulation last;
       last.contains_last = true;
       last.total = previous_step.back().total + last_value;
     }
@@ -75,7 +67,6 @@ TEST_CASE("Test the House Robber problem") {
   Solution test_instance;
   vector<int> case_1 = {1, 2, 3, 1};
   REQUIRE(test_instance.rob(case_1) == 4);
-
   vector<int> case_2 = {2, 7, 9, 3, 1};
   REQUIRE(test_instance.rob(case_2) == 12);
 }
