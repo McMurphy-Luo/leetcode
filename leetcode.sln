@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "House Robber", "src\House R
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Valid Parentheses", "src\Valid Parentheses\Valid Parentheses.vcxproj", "{5C59E580-92BE-4F9C-A98F-44F6BD3B34D6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Merge Two Sorted Lists", "src\Merge Two Sorted Lists\Merge Two Sorted Lists.vcxproj", "{376900E5-B8F3-4A40-9932-4CBE951ABEB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -45,6 +47,10 @@ Global
 		{5C59E580-92BE-4F9C-A98F-44F6BD3B34D6}.Debug|x64.Build.0 = Debug|x64
 		{5C59E580-92BE-4F9C-A98F-44F6BD3B34D6}.Release|x64.ActiveCfg = Release|x64
 		{5C59E580-92BE-4F9C-A98F-44F6BD3B34D6}.Release|x64.Build.0 = Release|x64
+		{376900E5-B8F3-4A40-9932-4CBE951ABEB0}.Debug|x64.ActiveCfg = Debug|x64
+		{376900E5-B8F3-4A40-9932-4CBE951ABEB0}.Debug|x64.Build.0 = Debug|x64
+		{376900E5-B8F3-4A40-9932-4CBE951ABEB0}.Release|x64.ActiveCfg = Release|x64
+		{376900E5-B8F3-4A40-9932-4CBE951ABEB0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
