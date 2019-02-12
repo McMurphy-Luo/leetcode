@@ -2,6 +2,7 @@
 #include "../catch.hpp"
 #include <cstddef>
 #include <iostream>
+#include <algorithm>
 
 using std::cin;
 
@@ -14,9 +15,20 @@ struct ListNode {
 class Solution {
 public:
   ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-    ListNode* new_head = NULL;
-
-    
+    if (!l1 && !l2) {
+      return NULL;
+    }
+    ListNode* node_tobe_next = l1;
+    ListNode* node_another = l2;
+    if (!node_tobe_next) {
+      std::swap(node_tobe_next, node_another);
+    }
+    if (node_another && node_another->val < node_tobe_next->val) {
+      std::swap(node_tobe_next, node_another);
+    }
+    ListNode* my_child = mergeTwoLists(node_tobe_next->next, node_another);
+    node_tobe_next->next = my_child;
+    return node_tobe_next;
   }
 };
 
@@ -31,7 +43,7 @@ void DeleteList(ListNode* head) {
 
 int ValueAt(ListNode* list, size_t index) {
   ListNode* node_ref = list;
-  for (size_t i = 0; i <= index; ++i) {
+  for (size_t i = 0; i < index; ++i) {
     node_ref = node_ref->next;
   }
   return node_ref->val;
