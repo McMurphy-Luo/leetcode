@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Merge Two Sorted Lists", "s
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matchsticks to Square", "src\Matchsticks to Square\Matchsticks to Square.vcxproj", "{A2381891-AA03-4CFF-813E-99CA75819136}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Merge k Sorted Lists", "src\Merge k Sorted Lists\Merge k Sorted Lists.vcxproj", "{7DFD01AC-CE0E-47B0-AFF7-D15012006041}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -57,6 +59,10 @@ Global
 		{A2381891-AA03-4CFF-813E-99CA75819136}.Debug|x64.Build.0 = Debug|x64
 		{A2381891-AA03-4CFF-813E-99CA75819136}.Release|x64.ActiveCfg = Release|x64
 		{A2381891-AA03-4CFF-813E-99CA75819136}.Release|x64.Build.0 = Release|x64
+		{7DFD01AC-CE0E-47B0-AFF7-D15012006041}.Debug|x64.ActiveCfg = Debug|x64
+		{7DFD01AC-CE0E-47B0-AFF7-D15012006041}.Debug|x64.Build.0 = Debug|x64
+		{7DFD01AC-CE0E-47B0-AFF7-D15012006041}.Release|x64.ActiveCfg = Release|x64
+		{7DFD01AC-CE0E-47B0-AFF7-D15012006041}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
