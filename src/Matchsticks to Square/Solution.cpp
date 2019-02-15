@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <map>
+#include <algorithm>
 
 using std::vector;
 using std::cin;
@@ -10,31 +11,36 @@ using std::map;
 using std::size_t;
 using std::pair;
 
+typedef pair<int, map<int, size_t>> StepData;
+
 class Solution {
 public:
   bool makesquare(vector<int> &nums) {
-    map<int, size_t> step_source;
+    StepData step_source;
+    step_source.first = 0;
+    int sum = 0;
     for (vector<int>::iterator it = nums.begin(); it != nums.end(); ++it) {
-      ++step_source[*it];
+      ++step_source.second[*it];
+      sum += *it;
     }
-
-    vector<map<int, size_t>> after_step_result;
-    after_step_result = RetrieveBorder(step_source);
-
-    
-    if (!Step1(before_step, after_step)) {
+    int border_length = sum / 4;
+    int remainder = sum % 4;
+    if (border_length <= 0 || remainder != 0) {
       return false;
     }
-
-    if (!Step2(after_step1))
+    return Iterate(step_source);
   }
 
-  bool Iterate*() {
+  bool Iterate(const StepData& step_source) {
+    vector<map<int, size_t>> result = RetrieveBorder(step_source);
+    if (result.empty()) {
+      return false;
+    }
+    
     
   }
 
-
-  vector<map<int, size_t>> RetrieveBorder(map<int, size_t>& step_source) {
+  vector<map<int, size_t>> RetrieveBorder(const map<int, size_t>& step_source) {
 
   }
 };
