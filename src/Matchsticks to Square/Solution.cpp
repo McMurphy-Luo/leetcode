@@ -11,16 +11,19 @@ using std::map;
 using std::size_t;
 using std::pair;
 
-typedef pair<int, map<int, size_t>> StepData;
+struct StepData {
+  int border_count;
+  map<int, size_t> step;
+};
 
 class Solution {
 public:
   bool makesquare(vector<int> &nums) {
     StepData step_source;
-    step_source.first = 0;
+    step_source.border_count = 0;
     int sum = 0;
     for (vector<int>::iterator it = nums.begin(); it != nums.end(); ++it) {
-      ++step_source.second[*it];
+      ++step_source.step[*it];
       sum += *it;
     }
     int border_length = sum / 4;
@@ -31,16 +34,36 @@ public:
     return Iterate(step_source);
   }
 
-  bool Iterate(const StepData& step_source) {
-    vector<map<int, size_t>> result = RetrieveBorder(step_source);
-    if (result.empty()) {
-      return false;
-    }
-    
-    
+  vector<map<int, size_t>> EnumeratePosibilities(const map<int, size_t>& source) {
+
   }
 
-  vector<map<int, size_t>> RetrieveBorder(const map<int, size_t>& step_source) {
+
+
+  bool Iterate(const StepData& step_source) {
+    if (step_source.border_count == 4 && step_source.step.empty()) {
+      return true;
+    }
+    if (step_source.border_count >= 4) {
+      return false;
+    }
+    if (step_source.step.empty()) {
+      return false;
+    }
+    vector<StepData> result = RetrieveBorder(step_source);
+    for (vector<StepData>::iterator it = result.begin(); it != result.end(); ++it) {
+      if (Iterate(*it)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  vector<StepData> RetrieveBorder(const StepData& step_source) {
+    vector<StepData> result;
+
+    
+    
 
   }
 };
