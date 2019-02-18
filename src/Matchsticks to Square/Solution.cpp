@@ -21,9 +21,19 @@ public:
   bool makesquare(vector<int> &nums) {
     StepData step_source;
     step_source.border_count = 0;
-    int sum = 0;
     for (vector<int>::iterator it = nums.begin(); it != nums.end(); ++it) {
       ++step_source.step[*it];
+    }
+    vector<map<int, size_t>> posibilities = EnumeratePosibilities(step_source.step);
+    if (posibilities.empty()) {
+      return false;
+    }
+    return Iterate(step_source, );
+  }
+
+  vector<map<int, size_t>> EnumeratePosibilities(const map<int, size_t>& source) {
+    int sum = 0;
+    for (vector<int>::iterator it = nums.begin(); it != nums.end(); ++it) {
       sum += *it;
     }
     int border_length = sum / 4;
@@ -31,14 +41,34 @@ public:
     if (border_length <= 0 || remainder != 0) {
       return false;
     }
-    return Iterate(step_source);
   }
 
-  vector<map<int, size_t>> EnumeratePosibilities(const map<int, size_t>& source) {
+  pair<bool, map<int, size_t>> FindPosibility(const map<int, size_t>& source, int count_to_remove) {
+    assert(count_to_remove != 0);
+    map<int, size_t> copy = source;
+    pair<bool, map<int, size_t>> result;
+    if (copy.empty()) {
+      result.first = false;
+      return result;
+    }
+    copy.erase(copy.begin());
+    pair<bool, map<int, size_t>> result = FindPosibility(copy, count_to_remove);
+    
+
 
   }
 
+  map<int, size_t> StripItem(const map<int, size_t>& source) {
 
+  }
+
+  pair<bool, map<int, size_t>> SubtractMap(const map<int, size_t>& minuend, const map<int, size_t>& subtrahend) {
+    map<int, size_t> result;
+    for (map<int, size_t>::const_iterator it = subtrahend.cbegin(); it != subtrahend.cend(); ++it) {
+      if (minuend.)
+
+    }
+  }
 
   bool Iterate(const StepData& step_source) {
     if (step_source.border_count == 4 && step_source.step.empty()) {
