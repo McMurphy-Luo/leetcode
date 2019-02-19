@@ -7,6 +7,7 @@
 
 using std::vector;
 using std::cin;
+using std::cout;
 using std::map;
 using std::size_t;
 using std::pair;
@@ -20,57 +21,76 @@ class Solution {
 public:
   bool makesquare(vector<int> &nums) {
     StepData step_source;
+    int sum = 0;
     step_source.border_count = 0;
     for (vector<int>::iterator it = nums.begin(); it != nums.end(); ++it) {
       ++step_source.step[*it];
-    }
-    vector<map<int, size_t>> posibilities = EnumeratePosibilities(step_source.step);
-    if (posibilities.empty()) {
-      return false;
-    }
-    return Iterate(step_source, );
-  }
-
-  vector<map<int, size_t>> EnumeratePosibilities(const map<int, size_t>& source) {
-    int sum = 0;
-    for (vector<int>::iterator it = nums.begin(); it != nums.end(); ++it) {
       sum += *it;
     }
     int border_length = sum / 4;
-    int remainder = sum % 4;
-    if (border_length <= 0 || remainder != 0) {
+    int reminder = sum % 4;
+    if (reminder != 0) {
       return false;
     }
+    if (border_length == 0) {
+      return false;
+    }
+    return Iterate(step_source, border_length);
   }
 
-  pair<bool, map<int, size_t>> FindPosibility(const map<int, size_t>& source, int count_to_remove) {
+  vector<map<int, size_t>> FindPosibility(const map<int, size_t>& source, int count_to_remove) {
     assert(count_to_remove != 0);
+    vector<map<int, size_t>> result_of_me;
+    if (source.empty()) {
+      return result_of_me;
+    }
     map<int, size_t> copy = source;
-    pair<bool, map<int, size_t>> result;
-    if (copy.empty()) {
-      result.first = false;
-      return result;
-    }
+    pair<int, size_t> first_item_in_map = *(copy.begin());
+    assert(first_item_in_map.second != 0);
     copy.erase(copy.begin());
-    pair<bool, map<int, size_t>> result = FindPosibility(copy, count_to_remove);
-    
-
-
-  }
-
-  map<int, size_t> StripItem(const map<int, size_t>& source) {
-
-  }
-
-  pair<bool, map<int, size_t>> SubtractMap(const map<int, size_t>& minuend, const map<int, size_t>& subtrahend) {
-    map<int, size_t> result;
-    for (map<int, size_t>::const_iterator it = subtrahend.cbegin(); it != subtrahend.cend(); ++it) {
-      if (minuend.)
-
+    for (size_t item_removed_from_first_item = 0; item_removed_from_first_item <= first_item_in_map.second; ++item_removed_from_first_item) {
+      int count_to_accomplished_by_others = count_to_remove - static_cast<int>(item_removed_from_first_item) * first_item_in_map.first;
+      if (count_to_accomplished_by_others == 0) {
+        pair<int, size_t> item_accomplish_the_job;
+        item_accomplish_the_job.first = first_item_in_map.first;
+        item_accomplish_the_job.second = item_removed_from_first_item;
+        map<int, size_t> posibility;
+        posibility.insert(item_accomplish_the_job);
+        result_of_me.push_back(posibility);
+      }
+      if (count_to_accomplished_by_others <= 0) {
+        break;
+      }
+      vector<map<int, size_t>> result = FindPosibility(copy, count_to_accomplished_by_others);
+      pair<int, size_t> first_item;
+      first_item.first = first_item_in_map.first;
+      first_item.second = item_removed_from_first_item;
+      for (vector<map<int, size_t>>::const_iterator it = result.begin(); it != result.end(); ++it) {
+        map<int, size_t> item = *it;
+        if (first_item.second != 0) {
+          item.insert(first_item);
+        }
+        result_of_me.push_back(item);
+      }
     }
+    return result_of_me;
   }
 
-  bool Iterate(const StepData& step_source) {
+  map<int, size_t> StripMap(const map<int, size_t>& lhs, const map<int, size_t>& rhs) {
+    map<int, size_t> result = lhs;
+    for (map<int, size_t>::const_iterator it = rhs.cbegin(); it != rhs.end(); ++it) {
+      map<int, size_t>::iterator it_subtractor = result.find(it->first);
+      if (it_subtractor != result.end()) {
+        it_subtractor->second -= it->second;
+      }
+      if (it_subtractor->second == 0) {
+        result.erase(it_subtractor);
+      }
+    }
+    return result;
+  }
+
+  bool Iterate(const StepData& step_source, int border_length) {
     if (step_source.border_count == 4 && step_source.step.empty()) {
       return true;
     }
@@ -80,21 +100,16 @@ public:
     if (step_source.step.empty()) {
       return false;
     }
-    vector<StepData> result = RetrieveBorder(step_source);
-    for (vector<StepData>::iterator it = result.begin(); it != result.end(); ++it) {
-      if (Iterate(*it)) {
+    vector<map<int, size_t>> result = FindPosibility(step_source.step, border_length);
+    for (vector<map<int, size_t>>::const_iterator it = result.cbegin(); it != result.cend(); ++it) {
+      StepData next_step;
+      next_step.step = StripMap(step_source.step, *it);
+      next_step.border_count = step_source.border_count + 1;
+      if (Iterate(next_step, border_length)) {
         return true;
       }
     }
     return false;
-  }
-
-  vector<StepData> RetrieveBorder(const StepData& step_source) {
-    vector<StepData> result;
-
-    
-    
-
   }
 };
 
