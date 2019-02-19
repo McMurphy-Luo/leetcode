@@ -1,3 +1,5 @@
+#define CATCH_CONFIG_MAIN
+#include "../catch.hpp"
 #include <string>
 
 using std::string;
@@ -17,6 +19,12 @@ public:
         result++;
       }
     }
-    return result;
+    return static_cast<int>(result);
   }
 };
+
+TEST_CASE("Test the solution for problem \"Jewels and Stones\"") {
+  Solution solution;
+  REQUIRE(solution.numJewelsInStones("aA", "aAAbbbb") == 2);
+  REQUIRE(solution.numJewelsInStones("z", "ZZ") == 0);
+}

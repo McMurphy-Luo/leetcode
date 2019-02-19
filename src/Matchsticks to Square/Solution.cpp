@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_RUNNER
+#define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
 #include <vector>
 #include <iostream>
@@ -130,10 +130,4 @@ TEST_CASE("Test the solution for problem \"Matchsticks to Square\"") {
   case_2_input.push_back(3);
   case_2_input.push_back(4);
   REQUIRE_FALSE(solution_instance.makesquare(case_2_input));
-}
-
-int main(int argc, char* argv[]) {
-  int result = Catch::Session().run(argc, argv);
-  cin.get();
-  return result;
 }
