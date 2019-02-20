@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_RUNNER
+#define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
 #include <cstddef>
 #include <iostream>
@@ -65,10 +65,4 @@ TEST_CASE("Test the solution for problem \"Merge Two Sorted Lists\"") {
   REQUIRE(ValueAt(merged_list, 4) == 4);
   REQUIRE(ValueAt(merged_list, 5) == 4);
   DeleteList(merged_list);
-}
-
-int main(int argc, char* argv[]) {
-  int result = Catch::Session().run(argc, argv);
-  cin.get();
-  return result;
 }
