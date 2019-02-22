@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Merge k Sorted Lists", "src
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Count Complete Tree Nodes", "src\Count Complete Tree Nodes\Count Complete Tree Nodes.vcxproj", "{EB24BE5D-A0AE-41D4-9313-FEF87BFF7D8C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Find Duplicate Subtrees", "src\Find Duplicate Subtrees\Find Duplicate Subtrees.vcxproj", "{F95B803A-0652-4A15-90F1-2FA30EC87CE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{EB24BE5D-A0AE-41D4-9313-FEF87BFF7D8C}.Release|x64.ActiveCfg = Release|x64
 		{EB24BE5D-A0AE-41D4-9313-FEF87BFF7D8C}.Release|x64.Build.0 = Release|x64
 		{EB24BE5D-A0AE-41D4-9313-FEF87BFF7D8C}.Release|x86.ActiveCfg = Release|x64
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Debug|x64.ActiveCfg = Debug|x64
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Debug|x64.Build.0 = Debug|x64
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Debug|x86.ActiveCfg = Debug|Win32
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Debug|x86.Build.0 = Debug|Win32
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Release|x64.ActiveCfg = Release|x64
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Release|x64.Build.0 = Release|x64
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Release|x86.ActiveCfg = Release|Win32
+		{F95B803A-0652-4A15-90F1-2FA30EC87CE1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
