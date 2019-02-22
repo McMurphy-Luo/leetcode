@@ -41,8 +41,8 @@ public:
 
 void DeleteTree(TreeNode* root) {
   if (root) {
-    delete root->left;
-    delete root->right;
+    DeleteTree(root->left);
+    DeleteTree(root->right);
     delete root;
   }
 }
