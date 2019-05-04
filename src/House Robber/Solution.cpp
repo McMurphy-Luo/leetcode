@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_RUNNER
+#define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
 #include <vector>
 #include <cassert>
@@ -69,10 +69,4 @@ TEST_CASE("Test the House Robber problem") {
   REQUIRE(test_instance.rob(case_1) == 4);
   vector<int> case_2 = {2, 7, 9, 3, 1};
   REQUIRE(test_instance.rob(case_2) == 12);
-}
-
-int main(int argc, char* argv[]) {
-  int result = Catch::Session().run(argc, argv);
-  cin.get();
-  return result;
 }

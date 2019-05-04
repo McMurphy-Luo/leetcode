@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_RUNNER
+#define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
 #include <string>
 #include <algorithm>
@@ -34,10 +34,4 @@ TEST_CASE("Test the House Robber problem") {
   REQUIRE(test_instance.convertToTitle(26) == "Z");
   REQUIRE(test_instance.convertToTitle(27) == "AA");
   REQUIRE(test_instance.convertToTitle(26 * 26) == "YZ");
-}
-
-int main(int argc, char* argv[]) {
-  int result = Catch::Session().run(argc, argv);
-  cin.get();
-  return result;
 }

@@ -4,7 +4,7 @@
  * @brief solution to problem https://leetcode.com/problems/valid-parentheses/
  */
 
-#define CATCH_CONFIG_RUNNER
+#define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
 #include <string>
 #include <stack>
@@ -82,10 +82,4 @@ TEST_CASE("Test the solution of for problem 'Valid Parentheses'.") {
   REQUIRE(!solution.isValid("(]"));
   REQUIRE(!solution.isValid("([)]"));
   REQUIRE(solution.isValid("{[]}"));
-}
-
-int main(int argc, char* argv[]) {
-  int result = Catch::Session().run(argc, argv);
-  cin.get();
-  return result;
 }
