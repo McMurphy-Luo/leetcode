@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reverse String", "src\Rever
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Two Sum", "src\Two Sum\Two Sum.vcxproj", "{81C91D65-E3CA-4B5D-837F-472E8DDD3456}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Binary Tree Paths", "src\Binary Tree Paths\Binary Tree Paths.vcxproj", "{3910087E-99F8-4287-B4B7-D738E6A4E39A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -87,6 +89,10 @@ Global
 		{81C91D65-E3CA-4B5D-837F-472E8DDD3456}.Debug|x64.Build.0 = Debug|x64
 		{81C91D65-E3CA-4B5D-837F-472E8DDD3456}.Release|x64.ActiveCfg = Release|x64
 		{81C91D65-E3CA-4B5D-837F-472E8DDD3456}.Release|x64.Build.0 = Release|x64
+		{3910087E-99F8-4287-B4B7-D738E6A4E39A}.Debug|x64.ActiveCfg = Debug|x64
+		{3910087E-99F8-4287-B4B7-D738E6A4E39A}.Debug|x64.Build.0 = Debug|x64
+		{3910087E-99F8-4287-B4B7-D738E6A4E39A}.Release|x64.ActiveCfg = Release|x64
+		{3910087E-99F8-4287-B4B7-D738E6A4E39A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
