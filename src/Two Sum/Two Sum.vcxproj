@@ -12,8 +12,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F95B803A-0652-4A15-90F1-2FA30EC87CE1}</ProjectGuid>
-    <RootNamespace>FindDuplicateSubtrees</RootNamespace>
+    <ProjectGuid>{81C91D65-E3CA-4B5D-837F-472E8DDD3456}</ProjectGuid>
+    <RootNamespace>TwoSum</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
