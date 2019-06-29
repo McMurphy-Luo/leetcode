@@ -1,22 +1,42 @@
 #define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
 #include <vector>
+#include <algorithm>
 
 using std::vector;
+using std::min;
+using std::max;
 
-
-/**
- * This solution does not use the best algorithm.
- * This solution is a brute force solution to this problem
- * Although after read the answer at the solution page at leetcode, I already know the best solution
- * I decide to keep this brute force solution.
- */
 class Solution {
 public:
   int maxArea(vector<int>& height) {
-    for (vector<int>::const_iterator it = height.cbegin(); it != height.cend(); ++it) {
-      
+    assert(height.size() >= 2);
+    int max_area = 0;
+    size_t i = 0;
+    size_t j = height.size() - 1;
+    int begin = 0;
+    int end = 0;
+    while (i < j) {
+      bool new_area_shall_be_calculated = false;
+      if (height.at(i) > begin) {
+        new_area_shall_be_calculated = true;
+        begin = height.at(i);
+      }
+      if (height.at(j) > end) {
+        new_area_shall_be_calculated = true;
+        end = height.at(j);
+      }
+      if (new_area_shall_be_calculated) {
+        max_area = max(max_area, static_cast<int>(min(end, begin) * (j - i)));
+      }
+      if (end < begin) {
+        --j;
+      }
+      else {
+        ++i;
+      }
     }
+    return max_area;
   }
 };
 
