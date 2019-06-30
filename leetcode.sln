@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Container With Most Water",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Longest Palindromic Substring", "src\Longest Palindromic Substring\Longest Palindromic Substring.vcxproj", "{F3FD3755-6836-4FDB-B477-2EC13E8D8C9C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Regular Expression Matching", "src\Regular Expression Matching\Regular Expression Matching.vcxproj", "{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -163,6 +165,12 @@ Global
 		{F3FD3755-6836-4FDB-B477-2EC13E8D8C9C}.Release|x64.ActiveCfg = Release|x64
 		{F3FD3755-6836-4FDB-B477-2EC13E8D8C9C}.Release|x64.Build.0 = Release|x64
 		{F3FD3755-6836-4FDB-B477-2EC13E8D8C9C}.Release|x86.ActiveCfg = Release|x64
+		{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}.Debug|x64.ActiveCfg = Debug|x64
+		{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}.Debug|x64.Build.0 = Debug|x64
+		{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}.Debug|x86.ActiveCfg = Debug|x64
+		{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}.Release|x64.ActiveCfg = Release|x64
+		{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}.Release|x64.Build.0 = Release|x64
+		{ED5B2E34-34DE-43A2-8411-4EE6A151A97C}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
