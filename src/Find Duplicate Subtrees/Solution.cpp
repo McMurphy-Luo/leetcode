@@ -24,7 +24,7 @@ class Solution {
 public:
   vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
     map<string, vector<TreeNode*>> node_traversal_result_storage;
-    TraverseTree(root, &node_traversal_result_storage);
+    string do_not_care = TraverseTree(root, &node_traversal_result_storage);
     vector<TreeNode*> result;
     map<string, vector<TreeNode*>>::iterator it = node_traversal_result_storage.begin();
     for (; it != node_traversal_result_storage.end(); ++it) {
