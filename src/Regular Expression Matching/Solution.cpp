@@ -77,12 +77,17 @@ State* ParsePattern(const string& pattern) {
 }
 
 bool RunPattern(State* pattern, const string& string_to_match) {
-  size_t index = 0;
-  State* current_pattern = pattern;
-  while (index < string_to_match.size() && current_pattern) {
-    char current = string_to_match.at(index);
+  if (!pattern) {
+    return string_to_match.empty();
   }
-  return index == string_to_match.size() && nullptr == current_pattern->Next();
+  if (string_to_match.empty()) {
+    return pattern == nullptr;
+  }
+  assert(!string_to_match.empty());
+  assert(pattern);
+  if (pattern->Any() && pattern->Repeat()) {
+
+  }
 }
 
 void DeletePattern(State* pattern) {
