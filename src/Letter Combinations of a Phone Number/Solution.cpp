@@ -13,6 +13,24 @@ public:
   vector<string> letterCombinations(string digits) {
     
   }
+
+  vector<char> DigitToChar(char digit) {
+
+    if (digit == '2') {
+      return { 'a', 'b', 'c' };
+    }
+    if (digit == '3') {
+      return {}
+    }
+
+  }
+
+  vector<string> DigitsToString(string digits) {
+
+    
+    vector<char> 
+
+  }
 };
 
 bool UnorderedArrayEqual(const vector<string>& input_1, const vector<string>& input_2) {
