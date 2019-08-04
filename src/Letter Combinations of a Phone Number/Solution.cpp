@@ -15,21 +15,51 @@ public:
   }
 
   vector<char> DigitToChar(char digit) {
-
     if (digit == '2') {
       return { 'a', 'b', 'c' };
     }
     if (digit == '3') {
-      return {}
+      return { 'd', 'e', 'f' };
     }
-
+    if (digit == '4') {
+      return { 'g', 'h', 'i' };
+    }
+    if (digit == '5') {
+      return { 'j', 'k', 'l' };
+    }
+    if (digit == '6') {
+      return { 'm', 'n', 'o' };
+    }
+    if (digit == '7') {
+      return { 'p', 'q', 'r', 's' };
+    }
+    if (digit == '8') {
+      return { 't', 'u', 'v' };
+    }
+    if (digit == '9') {
+      return { 'w', 'x', 'y', 'z' };
+    }
+    return {};
   }
 
-  vector<string> DigitsToString(string digits) {
+  void DigitsToString(const string& digits, vector<string>& output) {
+    char the_first_char = digits.front();
+    vector<char> chars_to_be_appended = DigitToChar(the_first_char);
+
+    if (output.empty()) {
+      for (vector<char>::iterator it = chars_to_be_appended.begin(); it != chars_to_be_appended.end(); ++it) {
+        output.push_back(string(1, *it));
+      }
+    }
+    else {
+      for (vector<char>::iterator it = chars_to_be_appended.begin(); it != chars_to_be_appended.end(); ++it) {
+        for (vector<string>::iterator it = output.begin(); it != output.end(); ++it) {
+
+        }
+      }
+    }
 
     
-    vector<char> 
-
   }
 };
 
