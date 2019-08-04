@@ -77,6 +77,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\3Sum.cpp" />
     <ClCompile Include="src\Add Two Numbers.cpp" />
     <ClCompile Include="src\Binary Tree Paths.cpp" />
     <ClCompile Include="src\Container With Most Water.cpp" />
