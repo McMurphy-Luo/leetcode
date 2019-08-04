@@ -11,7 +11,8 @@ using std::sort;
 class Solution {
 public:
   vector<string> letterCombinations(string digits) {
-    
+    vector<string> output;
+    return DigitsToString(digits, output);
   }
 
   vector<char> DigitToChar(char digit) {
@@ -42,24 +43,24 @@ public:
     return {};
   }
 
-  void DigitsToString(const string& digits, vector<string>& output) {
+  vector<string> DigitsToString(const string& digits, const vector<string>& input) {
+    if (digits.empty()) {
+      return input;
+    }
     char the_first_char = digits.front();
     vector<char> chars_to_be_appended = DigitToChar(the_first_char);
-
-    if (output.empty()) {
-      for (vector<char>::iterator it = chars_to_be_appended.begin(); it != chars_to_be_appended.end(); ++it) {
-        output.push_back(string(1, *it));
+    vector<string> output;
+    for (vector<char>::const_iterator it_chars = chars_to_be_appended.cbegin(); it_chars != chars_to_be_appended.cend(); ++it_chars) {
+      if (input.empty()) {
+        output.push_back(string(1, *it_chars));
       }
-    }
-    else {
-      for (vector<char>::iterator it = chars_to_be_appended.begin(); it != chars_to_be_appended.end(); ++it) {
-        for (vector<string>::iterator it = output.begin(); it != output.end(); ++it) {
-
+      else {
+        for (vector<string>::const_iterator it_strings = input.cbegin(); it_strings != input.cend(); ++it_strings) {
+          output.push_back(*it_strings + *it_chars);
         }
       }
     }
-
-    
+    return DigitsToString(digits.substr(1, string::npos), output);
   }
 };
 
