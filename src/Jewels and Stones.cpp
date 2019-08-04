@@ -24,6 +24,6 @@ public:
 
 TEST_CASE("Test the solution for problem \"Jewels and Stones\"") {
   Solution solution;
-  REQUIRE(solution.numJewelsInStones("aA", "aAAbbbb") == 2);
+  REQUIRE(solution.numJewelsInStones("aA", "aAAbbbb") == 3);
   REQUIRE(solution.numJewelsInStones("z", "ZZ") == 0);
 }
