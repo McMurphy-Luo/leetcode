@@ -1,10 +1,13 @@
 #include "catch.hpp"
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using std::vector;
 using std::sort;
 using std::mismatch;
+using std::map;
+using std::pair;
 
 namespace
 {
@@ -32,7 +35,20 @@ namespace
 class Solution {
 public:
   vector<vector<int>> threeSum(vector<int>& nums) {
-    return {};
+    
+  }
+
+  vector<vector<int>> NSum(const vector<int>& nums) {
+
+  }
+
+  pair<bool, vector<int>> NSum(const map<int, size_t>& numbers, int target_number, size_t number_count_need_to_retrieve) {
+    if (number_count_need_to_retrieve == 1) {
+      if (numbers.find(target_number) == numbers.end()) {
+        return { false, {} };
+      }
+      return { false, {} };
+    }
   }
 };
 
