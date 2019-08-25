@@ -30,19 +30,48 @@ namespace
 class Solution {
 public:
   vector<string> generateParenthesis(int n) {
+    vector<vector<string>> generation_result_stored;
+    GenerateParenthesisDP(n, generation_result_stored);
+    return generation_result_stored.at(n - 1);
+  }
+
+  void GenerateParenthesisDP(int n, vector<vector<string>>& result_stored) {
     if (n == 1) {
-      return { "()" };
+      assert(result_stored.size() == 0);
+      result_stored.push_back({ "()" });
+      return;
     }
-    vector<string> result_of_subroutine = generateParenthesis(n - 1);
+    if (n == 2) {
+      GenerateParenthesisDP(1, result_stored);
+      assert(result_stored.size() == 1);
+      result_stored.push_back({ "()()", "(())" });
+      return;
+    }
+    GenerateParenthesisDP(n - 1, result_stored);
+    assert(result_stored.size() == n - 1);
     vector<string> result;
-    for (const string& item : result_of_subroutine) {
-      result.push_back("(" + item + ")");
-      result.push_back("()" + item);
-      result.push_back(item + "()");
+    for (size_t i = 0; static_cast<int>(i) < n; ++i) {
+      if (i == 0) {
+        for (size_t j = 0; j < result_stored.at(static_cast<size_t>(n - 2)).size(); ++j) {
+          result.push_back("()" + result_stored.at(static_cast<size_t>(n - 2)).at(j));
+        }
+        continue;
+      }
+      if (i == (n - 1)) {
+        for (size_t j = 0; j < result_stored.at(static_cast<size_t>(n - 2)).size(); ++j) {
+          result.push_back("(" + result_stored.at(static_cast<size_t>(n - 2)).at(j) + ")");
+        }
+        continue;
+      }
+      for (size_t j = 0; j < result_stored.at(i - 1).size(); ++j) {
+        string result_string_instance = "(" + result_stored.at(i - 1).at(j) + ")";
+        for (size_t m = 0; m < result_stored.at(n - i - 2).size(); ++m) {
+          result_string_instance += result_stored.at(n - i - 2).at(m);
+          result.push_back(result_string_instance);
+        }
+      }
     }
-    sort(result.begin(), result.end());
-    result.erase(unique(result.begin(), result.end()), result.end());
-    return result;
+    result_stored.push_back(result);
   }
 };
 
