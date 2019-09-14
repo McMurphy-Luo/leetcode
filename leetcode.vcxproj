@@ -104,6 +104,7 @@
     <ClCompile Include="src\Merge Two Sorted Lists.cpp" />
     <ClCompile Include="src\Regular Expression Matching.cpp" />
     <ClCompile Include="src\Remove Nth Node From End of List.cpp" />
+    <ClCompile Include="src\Reverse Integer.cpp" />
     <ClCompile Include="src\Reverse String.cpp" />
     <ClCompile Include="src\SortTest.cpp" />
     <ClCompile Include="src\Two Sum.cpp" />
