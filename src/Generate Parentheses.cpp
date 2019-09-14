@@ -19,7 +19,7 @@ namespace
     sort(lhs_copy.begin(), lhs_copy.end());
     sort(rhs_copy.begin(), rhs_copy.end());
     for (size_t index = 0; index < rhs_copy.size(); ++index) {
-      if (rhs_copy.at(index) != rhs_copy.at(index)) {
+      if (lhs_copy.at(index) != rhs_copy.at(index)) {
         return false;
       }
     }
@@ -50,24 +50,25 @@ public:
     GenerateParenthesisDP(n - 1, result_stored);
     assert(result_stored.size() == n - 1);
     vector<string> result;
+    string result_instance;
     for (size_t i = 0; static_cast<int>(i) < n; ++i) {
       if (i == 0) {
         for (size_t j = 0; j < result_stored.at(static_cast<size_t>(n - 2)).size(); ++j) {
-          result.push_back("()" + result_stored.at(static_cast<size_t>(n - 2)).at(j));
+          result_instance = "()" + result_stored.at(static_cast<size_t>(n - 2)).at(j);
+          result.push_back(result_instance);
         }
         continue;
       }
       if (i == (n - 1)) {
         for (size_t j = 0; j < result_stored.at(static_cast<size_t>(n - 2)).size(); ++j) {
-          result.push_back("(" + result_stored.at(static_cast<size_t>(n - 2)).at(j) + ")");
+          result_instance = "(" + result_stored.at(static_cast<size_t>(n - 2)).at(j) + ")";
+          result.push_back(result_instance);
         }
         continue;
       }
       for (size_t j = 0; j < result_stored.at(i - 1).size(); ++j) {
-        string result_string_instance = "(" + result_stored.at(i - 1).at(j) + ")";
         for (size_t m = 0; m < result_stored.at(n - i - 2).size(); ++m) {
-          result_string_instance += result_stored.at(n - i - 2).at(m);
-          result.push_back(result_string_instance);
+          result.push_back("(" + result_stored.at(i - 1).at(j) + ")" + result_stored.at(n - i - 2).at(m));
         }
       }
     }
@@ -81,9 +82,7 @@ TEST_CASE("Test the solution for problem 'Generate Parentheses'") {
   CHECK(
     UnorderedArrayEqual(
       sln_instance.generateParenthesis(4),
-      { "(((())))", "((()()))", "((())())", "((()))()", "(()(()))",
-      "(()()())", "(()())()", "(())(())", "(())()()", "()((()))",
-      "()(()())", "()(())()", "()()(())", "()()()()"}
+      { "(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()" }
     )
   );
 }
