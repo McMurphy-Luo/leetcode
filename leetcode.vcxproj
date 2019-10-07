@@ -102,6 +102,7 @@
     <ClCompile Include="src\Median of Two Sorted Arrays.cpp" />
     <ClCompile Include="src\Merge k Sorted Lists.cpp" />
     <ClCompile Include="src\Merge Two Sorted Lists.cpp" />
+    <ClCompile Include="src\Next Permutation.cpp" />
     <ClCompile Include="src\Regular Expression Matching.cpp" />
     <ClCompile Include="src\Remove Nth Node From End of List.cpp" />
     <ClCompile Include="src\Reverse Integer.cpp" />
