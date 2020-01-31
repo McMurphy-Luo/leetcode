@@ -5,8 +5,8 @@
 
 using std::vector;
 using std::swap;
+using std::reverse;
 using std::advance;
-using std::sort;
 
 namespace
 {
@@ -48,53 +48,61 @@ namespace
 class Solution {
 public:
   void nextPermutation(vector<int>& nums) {
+    if (nums.size() == 0) {
+      return;
+    }
     return PartialPermutation(nums, 0, nums.size() - 1);
   }
 
-  void PartialPermutation(vector<int>& nums, int begin, int end) {
-    int index = begin;
-    int index_unordered = index + 1;
-    for (; index <= end; ++index) {
-      index_unordered = index + 1;
-      if (index == end) {
-        break;
-      }
-      if (nums.at(index) > nums.at(index_unordered)) {
-        index_unordered = index;
-        break;
-      }
+  bool IsReversePermutation(const vector<int>& nums, int begin, int end) {
+    if (!(begin >= 0 && end < nums.size() && end >= begin)) {
+      assert(false);
+      return false;
     }
-    if (index == end) {
-      if (end - begin > 0) {
-        swap(nums[end], nums[end - 1]);
-      }
+  }
+
+  void PartialPermutation(vector<int>& nums, int begin, int end) {
+    if (!(begin >= 0 && end < nums.size() && end >= begin)) {
+      assert(false);
       return;
     }
-    assert(index >= begin && index + 1 <= end);
-    if (!IsReverseOrder(nums, index_unordered, end)) {
-      return PartialPermutation(nums, index_unordered, end);
+    if (begin == end) {
+      return;
     }
-    if (index_unordered > begin) {
-      int previous_maybe_reverse_ordered = index_unordered - 1;
-      while (previous_maybe_reverse_ordered >= begin) {
-        if (nums.at(previous_maybe_reverse_ordered) > nums.at(index_unordered)) {
-          index_unordered = previous_maybe_reverse_ordered;
-          previous_maybe_reverse_ordered = index_unordered - 1;
-        }
-        else {
-          break;
-        }
+    if (begin + 1 == end) {
+      swap(nums[begin], nums[end]);
+      return;
+    }
+    int index = end;
+    int index_not_reverse_ordered = index - 1;
+    do {
+      if (nums.at(index_not_reverse_ordered) < nums.at(index)) {
+        break;
       }
+      --index;
+      --index_not_reverse_ordered;
+    } while (index > begin);
+    if (index == begin) {
+      vector<int>::iterator reverse_vertex_begin = nums.begin();
+      advance(reverse_vertex_begin, begin);
+      vector<int>::iterator reverse_vertex_end = nums.begin();
+      advance(reverse_vertex_end, end + 1);
+      reverse(reverse_vertex_begin, reverse_vertex_end);
+      return;
     }
-    if (index_unordered == begin) {
-      for (int index = 0; begin + index < end - index; ++index) {
-        swap(nums[begin + index], nums[end - index]);
-      }
+    assert(index_not_reverse_ordered >= begin);
+    assert(nums.at(index_not_reverse_ordered) < nums.at(index));
+    
+    int next_index = end;
+    while (nums.at(next_index) <= nums.at(index_not_reverse_ordered)) {
+      --next_index;
     }
-    else {
-      swap(nums[FindNext(nums, index_unordered, end, nums.at(index_unordered - 1))], nums[index_unordered - 1]);
-    }
-    sort(nums.begin() + index_unordered, nums.begin() + end + 1);
+    swap(nums[next_index], nums[index_not_reverse_ordered]);
+    vector<int>::iterator reverse_vertex_begin = nums.begin();
+    advance(reverse_vertex_begin, index);
+    vector<int>::iterator reverse_vertex_end = nums.begin();
+    advance(reverse_vertex_end, end + 1);
+    reverse(reverse_vertex_begin, reverse_vertex_end);
   }
 };
 
