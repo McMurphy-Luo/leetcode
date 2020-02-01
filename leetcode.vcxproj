@@ -99,6 +99,7 @@
     <ClCompile Include="src\Letter Combinations of a Phone Number.cpp" />
     <ClCompile Include="src\Longest Palindromic Substring.cpp" />
     <ClCompile Include="src\Longest Substring Without Repeating Characters.cpp" />
+    <ClCompile Include="src\Longest Valid Parentheses.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Matchsticks to Square.cpp" />
     <ClCompile Include="src\Median of Two Sorted Arrays.cpp" />
