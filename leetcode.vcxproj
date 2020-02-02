@@ -110,6 +110,7 @@
     <ClCompile Include="src\Remove Nth Node From End of List.cpp" />
     <ClCompile Include="src\Reverse Integer.cpp" />
     <ClCompile Include="src\Reverse String.cpp" />
+    <ClCompile Include="src\Search in Rotated Sorted Array.cpp" />
     <ClCompile Include="src\SortTest.cpp" />
     <ClCompile Include="src\Two Sum.cpp" />
     <ClCompile Include="src\Valid Parentheses.cpp" />
