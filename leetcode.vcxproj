@@ -95,6 +95,7 @@
     <ClCompile Include="src\Excel Sheet Column Title.cpp" />
     <ClCompile Include="src\Find Duplicate Subtrees.cpp" />
     <ClCompile Include="src\Find First and Last Position of Element in Sorted Array.cpp" />
+    <ClCompile Include="src\First Missing Positive.cpp" />
     <ClCompile Include="src\Generate Parentheses.cpp" />
     <ClCompile Include="src\House Robber.cpp" />
     <ClCompile Include="src\Jewels and Stones.cpp" />
