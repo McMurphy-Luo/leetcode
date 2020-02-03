@@ -3,11 +3,70 @@
 #include "Sort.h"
 
 using std::vector;
+using std::ceil;
+
+struct BinarySearchResult {
+  int index_of_target;
+  int upper_bound;
+  int lower_bound;
+};
 
 class Solution {
 public:
   vector<int> searchRange(vector<int>& nums, int target) {
-    return {};
+    if (nums.empty()) {
+      return { -1, -1 };
+    }
+    return { FindLowerBound(nums, target), FindUpperBound(nums, target) };
+  }
+
+  int FindUpperBound(const vector<int>& nums, int target) {
+    int end = nums.size() - 1;
+    int begin = 0;
+    if (nums.at(end) < target) {
+      return -1;
+    }
+    while (end > begin) {
+      int middle = (end + begin) / 2 + (end + begin) % 2;
+      if (nums.at(middle) > target) {
+        end = middle - 1;
+      }
+      else {
+        begin = middle;
+      }
+    }
+    assert(end == begin);
+    if (nums.at(end) == target) {
+      return end;
+    }
+    else {
+      return -1;
+    }
+    return end;
+  }
+
+  int FindLowerBound(const vector<int>& nums, int target) {
+    int end = nums.size() - 1;
+    int begin = 0;
+    if (nums.at(begin) > target) {
+      return -1;
+    }
+    while (end > begin) {
+      int middle = (begin + end) / 2;
+      if (nums.at(middle) < target) {
+        begin = middle + 1;
+      }
+      else {
+        end = middle;
+      }
+    }
+    assert(end == begin);
+    if (nums.at(begin) == target) {
+      return begin;
+    }
+    else {
+      return -1;
+    }
   }
 };
 
