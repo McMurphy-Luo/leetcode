@@ -3,13 +3,6 @@
 #include "Sort.h"
 
 using std::vector;
-using std::ceil;
-
-struct BinarySearchResult {
-  int index_of_target;
-  int upper_bound;
-  int lower_bound;
-};
 
 class Solution {
 public:
@@ -21,7 +14,7 @@ public:
   }
 
   int FindUpperBound(const vector<int>& nums, int target) {
-    int end = nums.size() - 1;
+    int end = static_cast<int>(nums.size()) - 1;
     int begin = 0;
     if (nums.at(end) < target) {
       return -1;
@@ -46,7 +39,7 @@ public:
   }
 
   int FindLowerBound(const vector<int>& nums, int target) {
-    int end = nums.size() - 1;
+    int end = static_cast<int>(nums.size()) - 1;
     int begin = 0;
     if (nums.at(begin) > target) {
       return -1;
@@ -69,16 +62,6 @@ public:
     }
   }
 };
-
-int IntComparator(const int& lhs, const int& rhs) {
-  if (lhs < rhs) {
-    return -1;
-  }
-  else if (lhs > rhs) {
-    return 1;
-  }
-  return 0;
-}
 
 TEST_CASE("Test the solution for problem \"Find First and Last Position of Element in Sorted Array\"") {
   Solution sln_instance;

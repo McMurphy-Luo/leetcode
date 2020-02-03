@@ -1,6 +1,15 @@
 #include <functional>
 #include <cassert>
 
+__inline int IntComparator(const int& lhs, const int& rhs) {
+  if (lhs < rhs) {
+    return -1;
+  }
+  else if (lhs > rhs) {
+    return 1;
+  }
+  return 0;
+}
 
 template<typename I, typename V>
 bool ArrayEquals(I begin_1, I end_1, I begin_2, I end_2, std::function<int(const V&, const V&)> comparator) {
