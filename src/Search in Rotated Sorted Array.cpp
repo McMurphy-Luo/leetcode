@@ -9,7 +9,7 @@ public:
     if (nums.empty()) {
       return -1;
     }
-    return RecursiveSearch(nums, 0, nums.size() - 1, target);
+    return RecursiveSearch(nums, 0, static_cast<int>(nums.size()) - 1, target);
   }
 
 

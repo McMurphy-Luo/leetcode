@@ -35,7 +35,7 @@ public:
         return 0;
       }
       else {
-        return result;
+        return static_cast<int>(result);
       }
     }
     else {

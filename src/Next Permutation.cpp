@@ -29,7 +29,7 @@ namespace
     }
     assert(end > begin);
     for (int index = begin; index + 1 <= end; ++index) {
-      if (list.at(index) < list.at(index + 1)) {
+      if (list.at(index) < list.at(static_cast<size_t>(index) + 1)) {
         return false;
       }
     }
@@ -51,7 +51,7 @@ public:
     if (nums.size() == 0) {
       return;
     }
-    return PartialPermutation(nums, 0, nums.size() - 1);
+    return PartialPermutation(nums, 0, static_cast<int>(nums.size()) - 1);
   }
 
   bool IsReversePermutation(const vector<int>& nums, int begin, int end) {
