@@ -34,45 +34,48 @@ public:
   }
 };
 
-bool ArraySame(const vector<int>& lhs, const vector<int>& rhs) {
-  if (rhs.size() != lhs.size()) {
-    return false;
-  }
-  for (vector<int>::const_iterator it = lhs.begin(); it != lhs.end(); ++it) {
-    if (find(rhs.begin(), rhs.end(), *it) == rhs.end()) {
+namespace
+{
+  bool ArraySame(const vector<int>& lhs, const vector<int>& rhs) {
+    if (rhs.size() != lhs.size()) {
       return false;
     }
-  }
-  return true;
-}
-
-bool Contains(const vector<vector<int>>& array_of_array, const vector<int>& target) {
-  for (
-    vector<vector<int>>::const_iterator it = array_of_array.cbegin();
-    it != array_of_array.cend();
-    ++it
-    ) {
-    if (ArraySame(*it, target)) {
-      return true;
+    for (vector<int>::const_iterator it = lhs.begin(); it != lhs.end(); ++it) {
+      if (find(rhs.begin(), rhs.end(), *it) == rhs.end()) {
+        return false;
+      }
     }
+    return true;
   }
-  return false;
-}
 
-bool ArrayOfArraySame(const vector<vector<int>>& lhs, const vector<vector<int>>& rhs) {
-  if (lhs.size() != rhs.size()) {
+  bool Contains(const vector<vector<int>>& array_of_array, const vector<int>& target) {
+    for (
+      vector<vector<int>>::const_iterator it = array_of_array.cbegin();
+      it != array_of_array.cend();
+      ++it
+      ) {
+      if (ArraySame(*it, target)) {
+        return true;
+      }
+    }
     return false;
   }
-  for (
-    vector<vector<int>>::const_iterator it = lhs.begin();
-    it != lhs.end();
-    ++it
-  ) {
-    if (!Contains(rhs, *it)) {
+
+  bool ArrayOfArraySame(const vector<vector<int>>& lhs, const vector<vector<int>>& rhs) {
+    if (lhs.size() != rhs.size()) {
       return false;
     }
+    for (
+      vector<vector<int>>::const_iterator it = lhs.begin();
+      it != lhs.end();
+      ++it
+      ) {
+      if (!Contains(rhs, *it)) {
+        return false;
+      }
+    }
+    return true;
   }
-  return true;
 }
 
 TEST_CASE("Test the solution for problem \"Combination Sum\"") {
