@@ -8,7 +8,31 @@ using std::find_if;
 class Solution {
 public:
   vector<vector<int>> permute(vector<int>& nums) {
-    return {};
+    if (nums.size() == 0) {
+      return { };
+    }
+    return RecursivePermute(nums, static_cast<int>(nums.size()) - 1);
+  }
+
+  vector<vector<int>> RecursivePermute(const vector<int>& nums, int end) {
+    if (end == 0) {
+      return { { nums.at(0)} };
+    }
+    vector<vector<int>> result_of_next_permutation = RecursivePermute(nums, end - 1);
+    vector<vector<int>> result;
+    int current_number = nums.at(end);
+    for (
+      vector<vector<int>>::iterator it = result_of_next_permutation.begin();
+      it != result_of_next_permutation.cend();
+      ++it
+    ) {
+      for (int index = 0; index <= it->size(); ++index) {
+        vector<int> permutation = *it;
+        permutation.insert(permutation.begin() + index, current_number);
+        result.push_back(permutation);
+      }
+    }
+    return result;
   }
 };
 
