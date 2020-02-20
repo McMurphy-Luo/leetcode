@@ -116,6 +116,7 @@
     <ClCompile Include="src\Remove Nth Node From End of List.cpp" />
     <ClCompile Include="src\Reverse Integer.cpp" />
     <ClCompile Include="src\Reverse String.cpp" />
+    <ClCompile Include="src\Rotate Image.cpp" />
     <ClCompile Include="src\Search in Rotated Sorted Array.cpp" />
     <ClCompile Include="src\SortTest.cpp" />
     <ClCompile Include="src\Trapping Rain Water.cpp" />
