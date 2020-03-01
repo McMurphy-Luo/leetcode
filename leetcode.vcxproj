@@ -108,6 +108,7 @@
     <ClCompile Include="src\Longest Valid Parentheses.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Matchsticks to Square.cpp" />
+    <ClCompile Include="src\Maximum Subarray.cpp" />
     <ClCompile Include="src\Median of Two Sorted Arrays.cpp" />
     <ClCompile Include="src\Merge k Sorted Lists.cpp" />
     <ClCompile Include="src\Merge Two Sorted Lists.cpp" />
