@@ -102,6 +102,7 @@
     <ClCompile Include="src\Group Anagrams.cpp" />
     <ClCompile Include="src\House Robber.cpp" />
     <ClCompile Include="src\Jewels and Stones.cpp" />
+    <ClCompile Include="src\Jump Game II.cpp" />
     <ClCompile Include="src\Letter Combinations of a Phone Number.cpp" />
     <ClCompile Include="src\Longest Palindromic Substring.cpp" />
     <ClCompile Include="src\Longest Substring Without Repeating Characters.cpp" />
