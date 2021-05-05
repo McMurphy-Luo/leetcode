@@ -103,6 +103,7 @@
     <ClCompile Include="src\House Robber.cpp" />
     <ClCompile Include="src\Jewels and Stones.cpp" />
     <ClCompile Include="src\Jump Game II.cpp" />
+    <ClCompile Include="src\Jump Game.cpp" />
     <ClCompile Include="src\Letter Combinations of a Phone Number.cpp" />
     <ClCompile Include="src\Longest Palindromic Substring.cpp" />
     <ClCompile Include="src\Longest Substring Without Repeating Characters.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="src\Matchsticks to Square.cpp" />
     <ClCompile Include="src\Maximum Subarray.cpp" />
     <ClCompile Include="src\Median of Two Sorted Arrays.cpp" />
+    <ClCompile Include="src\Merge Intervals.cpp" />
     <ClCompile Include="src\Merge k Sorted Lists.cpp" />
     <ClCompile Include="src\Merge Two Sorted Lists.cpp" />
     <ClCompile Include="src\Next Permutation.cpp" />
