@@ -126,6 +126,7 @@
     <ClCompile Include="src\SortTest.cpp" />
     <ClCompile Include="src\Trapping Rain Water.cpp" />
     <ClCompile Include="src\Two Sum.cpp" />
+    <ClCompile Include="src\Unique Paths.cpp" />
     <ClCompile Include="src\Valid Parentheses.cpp" />
   </ItemGroup>
   <ItemGroup>

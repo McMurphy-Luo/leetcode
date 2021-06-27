@@ -6,7 +6,34 @@ using std::vector;
 class Solution {
 public:
   vector<vector<int>> merge(vector<vector<int>>& intervals) {
-    return {};
+    if (intervals.empty()) {
+      return intervals;
+    }
+    vector<vector<int>> result;
+    std::sort(intervals.begin(), intervals.end(), [](const vector<int>& lhs, const vector<int>& rhs) {
+      return lhs[0] < rhs[0];
+    });
+    result.push_back(intervals[0]);
+    vector<vector<int>>::iterator it = intervals.begin() + 1;
+    while (it != intervals.end()) {
+      if (Overlapping(result.back(), *it)) {
+        Merge(result.back(), *it);
+        ++it;
+      } else {
+        result.push_back(*it);
+        ++it;
+      }
+    }
+    return result;
+  }
+
+  bool Overlapping(const vector<int>& lhs, const vector<int>& rhs) {
+    return !((lhs[1] < rhs[0]) || (lhs[0] > rhs[1]));
+  }
+
+  void Merge(vector<int>& lhs, const vector<int>& rhs) {
+    lhs[0] = std::min(lhs[0], rhs[0]);
+    lhs[1] = std::max(lhs[1], rhs[1]);
   }
 };
 
