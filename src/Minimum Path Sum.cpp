@@ -6,7 +6,30 @@ using std::vector;
 class Solution {
 public:
   int minPathSum(vector<vector<int>>& grid) {
-    return 0;
+    if (grid.empty()) {
+      return 0;
+    }
+    int columns = static_cast<int>(grid.front().size());
+    int rows = static_cast<int>(grid.size());
+    vector<vector<int>> min_path(rows, vector<int>(columns, -1));
+    
+    for (int i = rows - 1; i >= 0; --i) {
+      for (int j = columns - 1; j >= 0; --j) {
+        if (i == rows - 1 && j == columns - 1) {
+          min_path[i][j] = grid[i][j];
+          continue;
+        }
+        int min = std::numeric_limits<int>::max();
+        if (j < columns - 1) {
+          min = std::min(min, min_path[i][j + 1]);
+        }
+        if (i < rows - 1) {
+          min = std::min(min, min_path[i + 1][j]);
+        }
+        min_path[i][j] = min + grid[i][j];
+      }
+    }
+    return min_path[0][0];
   }
 };
 

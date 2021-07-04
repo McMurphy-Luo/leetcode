@@ -115,6 +115,7 @@
     <ClCompile Include="src\Merge Intervals.cpp" />
     <ClCompile Include="src\Merge k Sorted Lists.cpp" />
     <ClCompile Include="src\Merge Two Sorted Lists.cpp" />
+    <ClCompile Include="src\Minimum Path Sum.cpp" />
     <ClCompile Include="src\Next Permutation.cpp" />
     <ClCompile Include="src\Permutations.cpp" />
     <ClCompile Include="src\Regular Expression Matching.cpp" />
