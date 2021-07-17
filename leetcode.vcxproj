@@ -20,13 +20,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -94,6 +94,7 @@
     <ClCompile Include="src\Combination Sum.cpp" />
     <ClCompile Include="src\Container With Most Water.cpp" />
     <ClCompile Include="src\Count Complete Tree Nodes.cpp" />
+    <ClCompile Include="src\Edit Distance.cpp" />
     <ClCompile Include="src\Escape The Ghosts.cpp" />
     <ClCompile Include="src\Excel Sheet Column Title.cpp" />
     <ClCompile Include="src\Find Duplicate Subtrees.cpp" />
